@@ -13,6 +13,14 @@
     <a href="#compare">Compare Cars</a>
     <a href="#faqs">FAQs</a>
 </div>
+<div class ="container">
+    <form action = "" class = "searchBar">
+        <input type = "text" placeholder="Search anything cars.....">
+        <button type = "submit"> 
+            <img src = "../resources/images/search.png">
+        </button>
+    </form>
+</div>
 <style>
     body {
         background-image: url('/resources/images/background.webp');
@@ -20,6 +28,7 @@
         background-size: cover;
         background-position: top;
     }
+
     .topnav {
         background-color: #000000;
         overflow: hidden;
@@ -35,6 +44,48 @@
         padding: 14px 180px;
         text-decoration: none;
         font-size: 24px;
+    }
+    .searchBar {
+        width: 100%;
+        max-width: 700px;
+        background: rgba(9, 9, 9, 0.2);
+        align-items: center;
+        display: flex;
+        border-radius: 60px;
+        padding: 10px 20px;
+
+    }
+    .searchBar input {
+        background: transparent;
+        flex: 1;
+        border: 0;
+        outline: none;
+        padding: 24px;
+        font-size: 17px;
+        color: #ffffff;
+
+    }
+    .searchBar button img {
+        width: 25px;
+
+    }
+    .searchBar button {
+        border: 0;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px; 
+        background: #f7f5f5;
+        
+    }
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        padding: 5%;
+        background-image: linear-gradient(rgba(0, 8, 51, 0.9), rgba(0, 8, 51, 0.9), url('../resources/images/search.png'));
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 </html>
