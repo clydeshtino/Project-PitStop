@@ -13,14 +13,32 @@
     <a href="#compare">Compare Cars</a>
     <a href="#faqs">FAQs</a>
 </div>
-<div class ="container"></div>
-    <form action = "" class = "searchBar">
-        <input type = "text" placeholder="Search news.....">
-        <button type = "submit"> 
-            <img src = "../resources/images/search.png">
-        </button>
-    </form>
+<div class ="row">
+    <div class ="action-box">
+        <div class ="news-box">
+            <label>Recent News</label>
+        </div>
+        <div id ="news" class ="action-box">
+            <ul class ="news-list">
+                <li>
+                    <div>
+                        <div class ="news-image">
+                            {{No back-end yet, will implement function call later}}
+                        </div>
+                        <div class="news-title">
+                            <p class="">{{Get content, will implement}}</p>
+                            <span class ="date sub-text">
+                                by {{Publisher name}} on {{ Publish Date}}
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
+    
+
 <style>
     body {
         background-image: url('/resources/images/background.webp');
@@ -44,48 +62,8 @@
         text-decoration: none;
         font-size: 24px;
     }
-    .searchBar {
-        width: 100%;
-        max-width: 700px;
-        background: rgba(9, 9, 9, 0.2);
-        align-items: right;
-        display: flex;
-        border-radius: 60px;
-        padding: 10px 10px;
-    }
-
-    .searchBar input {
-        background: transparent;
-        flex: 1;
-        border: 0;
-        outline: none;
-        padding: 24px;
-        font-size: 17px;
-        color: #ffffff;
-    }
-
-    .searchBar button img {
-        width: 25px;
-    }
-
-    .searchBar button {
-        border: 0;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px; 
-        background: #f7f5f5;
-        
-    }
-
-    .container {
-        width: 70%;
-        min-height: 10vh;
-        padding: -20%;
-        background-image: linear-gradient(rgba(0, 8, 51, 0.9), rgba(0, 8, 51, 0.9), url('../resources/images/search.png'));
-        background-position: right;
-        display: flex;
-        align-items: right;
-        justify-content: right;
-    }
+  
+    
+   
 </style>
 </html>
