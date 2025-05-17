@@ -2,15 +2,10 @@ package routes
 
 import (
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
-func mainHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "GET" {
-		// TODO: Define function to show main page, call it here
-	} else if r.Method == "POST" {
-		// TODO: Define process function for main, call it here
-	}
-}
 func newsHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		// TODO: Define function in controller to show news, call here
@@ -27,6 +22,15 @@ func compareHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-/*func routes() *mux.router {
+// Router function to listen to our requests
+func routes() *mux.Router {
+	router := mux.NewRouter()
+	router.StrictSlash(true)
 
-}*/
+	router.HandleFunc("/", newsHandler)
+	router.HandleFunc("/compare", compareHandler)
+
+	http.Handle("/", router)
+
+	return router
+}
