@@ -1,34 +1,42 @@
 package routes
 
 import (
+	controller "Project-Pitstop/src-app/controllers"
+	"embed"
 	"net/http"
 
 	"github.com/gorilla/mux"
 )
 
-func newsHandler(w http.ResponseWriter, r *http.Request) {
+var resources embed.FS
+
+func SetResources(fs embed.FS) {
+	resources = fs
+}
+
+func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
-		// TODO: Define function in controller to show news, call here
+		controller.ShowNews(w, r)
 	} else if r.Method == "POST" {
-		// TODO: Define function in controller to process news, then call here
+		controller.ProcessNews(w, r)
 	}
 }
 
-func compareHandler(w http.ResponseWriter, r *http.Request) {
+func CompareHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
-		// TODO: Define controller function showing compare then call
+		controller.ShowCompare(w, r)
 	} else if r.Method == "POST" {
-		// TODO: Define process controller function, then call it here.
+		controller.ProcessCompare(w, r)
 	}
 }
 
 // Router function to listen to our requests
-func routes() *mux.Router {
+func Routes() *mux.Router {
 	router := mux.NewRouter()
 	router.StrictSlash(true)
 
-	router.HandleFunc("/", newsHandler)
-	router.HandleFunc("/compare", compareHandler)
+	router.HandleFunc("/", NewsHandler)
+	router.HandleFunc("/compare", CompareHandler)
 
 	http.Handle("/", router)
 

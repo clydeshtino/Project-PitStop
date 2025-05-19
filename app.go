@@ -1,15 +1,22 @@
 package main
 
-/*import (
+import (
+	router "Project-Pitstop/src-app/routes"
+	view "Project-Pitstop/src-app/shared/views"
+	"embed"
 	"log"
 	"net/http"
-	router "Project-Pitstop/src-app/routes"
-	session "Project-Pitstop/src-app/shared/session"
-	"Project-Pitstop/src-app/shared/view"
-)*/
+)
+
+var templates embed.FS
+var resources embed.FS
 
 func main() {
-	/*log.Print("\nStarting Project-Pitstop.....")
+	log.Print("\nStarting Project-Pitstop.....")
 	log.Print("\nProject-Pitstop is now running.")
-	view.ParseTemplates(templates)*/
+	view.Parse(templates)
+	router.SetResources(resources)
+
+	// Using normal LandS for local testing, TLS will be incorporated later.
+	log.Fatal(http.ListenAndServe(":8000", router.Routes()))
 }
